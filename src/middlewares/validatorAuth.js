@@ -14,8 +14,13 @@ export const registerValidator =[
     body("carne").custom(usedCarne),
     body("address", "The address is required").not().isEmpty(),
     body("phone", "The phone is required").not().isEmpty(),
-    body("email", "The email is required").not().isEmpty(),
-    body("email").custom(emailUsed),
+    body("email", "The email is required")
+    .notEmpty()
+    .bail()
+    .isEmail()
+    .withMessage("Ingrese una dirección de correo válida")
+    .bail()
+    .custom(emailUsed),
     body("password", "The password is required").notEmpty().isLength({min: 8}).withMessage("The minimum number of characters in the password must be 8"),
     validarCampos
 ]
