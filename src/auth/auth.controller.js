@@ -9,10 +9,11 @@ export const login = async (req, res) => {
   try {
     const { email, username, password } = req.body;
 
-    const lowerEmail = email ? email.toLowerCase() : null;
+    const lowerEmail = email ? email.trim().toLowerCase() : null;
+    const lowerUsername = username ? username.trim().toLowerCase() : null;
 
     const findUser = await User.findOne({
-      $or: [{ email: lowerEmail }, { username: username }],
+      $or: [{ email: lowerEmail }, { username: lowerUsername }],
     });
 
     if (!findUser) {

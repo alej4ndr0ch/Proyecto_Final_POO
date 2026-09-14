@@ -10,7 +10,6 @@ export const registerValidator =[
     body("surname", "The sur    name is required").not().isEmpty(),
     body("username", "The username is required").not().isEmpty(),
     body("username").custom(usedUsername),
-    body("carne", "The Carne is required").not().isEmpty(),
     body("carne").custom(usedCarne),
     body("address", "The address is required").not().isEmpty(),
     body("phone", "The phone is required").not().isEmpty(),
@@ -21,13 +20,25 @@ export const registerValidator =[
 ]
 
 export const loginValidator = [
-    body("carne", "This carne is required").notEmpty(),
-    body("email").optional().isEmail().withMessage("Ingresa una direccion de correo valida"),
-    body("email").optional().custom(pendingAccount),
-    body("username").optional().isString().withMessage("Ingrese un username valido"),
-    body("password", "The password is required").notEmpty(),
+    body("email")
+        .optional()
+        .isEmail()
+        .withMessage("Ingresa una dirección de correo válida"),
+
+    body("email")
+        .optional()
+        .custom(pendingAccount),
+
+    body("username")
+        .optional()
+        .isString()
+        .withMessage("Ingresa un username válido"),
+
+    body("password", "La contraseña es obligatoria")
+        .notEmpty(),
+
     validarCampos
-]
+];
 
 export const validateLogin = async (req, res, findUser, validPass) => {
   if(findUser.verification != true){
