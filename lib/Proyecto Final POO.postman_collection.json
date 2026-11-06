@@ -1,0 +1,357 @@
+{
+  "info": {
+    "_postman_id": "9036e7c7-9302-45eb-83ef-3cda2f8b6fea",
+    "name": "Proyecto Final POO",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "42042928"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"Pablo\",\r\n    \"surname\" : \"Ochoa\",\r\n    \"username\" : \"Pochoa15\",\r\n    \"carne\" : \"260214\",\r\n    \"address\": \"zona 16\",\r\n    \"email\"  : \"chizkeso2011@gmail.com\",\r\n    \"password\" : \"Chizkeso2011*\",\r\n    \"phone\" : \"78561023\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Activar Usuarios",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2YWE1ZWQwZTVkY2RlMjY1ZmU1Y2I0ZDUiLCJpYXQiOjE3OTIxMjEwNzgsImV4cCI6MTc5MjEzOTA3OH0.EHFWg9bYTRTLJUPzhq9_4VjjB9w_ImhbwxN3btuj2pM",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/users/active/6ad0d6ed008ed5b3fdfcf0aa",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "users",
+                "active",
+                "6ad0d6ed008ed5b3fdfcf0aa"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\"  : \"alejandrocuxun@gmail.com\",\r\n    \"password\" : \"Max202021*\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2YWE1ZWQwZTVkY2RlMjY1ZmU1Y2I0ZDUiLCJpYXQiOjE3OTIwNzUxNTEsImV4cCI6MTc5MjA5MzE1MX0.aPjA7c5zX6MHH0PnoMwB-0rILWkHrvF2unsUVhIPi6I",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\"  : \"adminb@gmail.com\",\r\n    \"password\" : \"-ADMINB-\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/users/getUsersById/6ad0d6ed008ed5b3fdfcf0aa",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "users",
+                "getUsersById",
+                "6ad0d6ed008ed5b3fdfcf0aa"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "HoursBeca",
+      "item": [
+        {
+          "name": "Add HoursBeca",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2YWE1ZWQwZTVkY2RlMjY1ZmU1Y2I0ZDUiLCJpYXQiOjE3OTM3OTg4NzYsImV4cCI6MTc5MzgxNjg3Nn0.aL4LzgnDMUigY4nfG42KRi8kfb95o1q-Em7dMm6C8jM",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"Apoyo en evento de diplomado\",\r\n    \"description\" : \"Apoyo en evento\",\r\n    \"hour\": 5,\r\n    \"day\": \"2026-11-07\",\r\n    \"place\" : \"Nivel 7\",\r\n    \"managerID\" : \"6aeb3247a5ee1c8c8c168853\",\r\n    \"image\" : \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcP4z8cGmJdYhMG4wIv2crUIZEO5yGK7g1OWIYhOsJCQ&s=10\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/hoursBeca/addHoursBeca",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "hoursBeca",
+                "addHoursBeca"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get HoursBeca",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/hoursBeca/getHoursBeca",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "hoursBeca",
+                "getHoursBeca"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Id HoursBeca",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/hoursBeca/getHoursBecaById/6ad41b0d4a6e4cb16679964f",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "hoursBeca",
+                "getHoursBecaById",
+                "6ad41b0d4a6e4cb16679964f"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Asign User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2YWE1ZWQwZTVkY2RlMjY1ZmU1Y2I0ZDUiLCJpYXQiOjE3OTMyNDA3NTUsImV4cCI6MTc5MzI1ODc1NX0.xbyQrMjYX4NjCO6yBBIW1EUg1ZdDT4I7ueknT_DxVXs",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"hoursBecaId\": \"6aeb339fa5ee1c8c8c168865\",\r\n  \"userId\": \"6aeb3247a5ee1c8c8c168853\",\r\n  \"target\": \"studentID\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/hoursBeca/assingUser",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "hoursBeca",
+                "assingUser"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get HourBecaPending",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2YWE1ZWQwZTVkY2RlMjY1ZmU1Y2I0ZDUiLCJpYXQiOjE3OTM4Mzg1ODAsImV4cCI6MTc5Mzg1NjU4MH0.NmaH5eJbnPhT0ODXeIWU_hahs_dp9iuSJ-uf4CXAiWQ",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/hoursBeca/pending",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "hoursBeca",
+                "pending"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2YWE1ZWQwZTVkY2RlMjY1ZmU1Y2I0ZDUiLCJpYXQiOjE3OTM4Mzg1ODAsImV4cCI6MTc5Mzg1NjU4MH0.NmaH5eJbnPhT0ODXeIWU_hahs_dp9iuSJ-uf4CXAiWQ",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/HB/v1/hoursBeca/activate/6ad41b0d4a6e4cb16679964f",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "HB",
+                "v1",
+                "hoursBeca",
+                "activate",
+                "6ad41b0d4a6e4cb16679964f"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
