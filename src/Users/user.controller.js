@@ -20,6 +20,32 @@ export const getUsers = async(req, res) => {
     }
 }
 
+export const getUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findByPk(id);
+
+    if(!user) {
+      return res.status(404).json({
+        success: false,
+        msg: "Usuario no encontrado",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      msg: "Error obteniendo el usuario",
+      error: error.message,
+    });
+  }
+};
+
 export const editStateUser = async(req, res) => {
     try{
         const {id} = req.params
@@ -112,7 +138,7 @@ export const activeUsers = async(req, res) => {
     try{
         const {id} = req.params
 
-        const user = await User.findByIdAndUpdate(id, {statusAccount: "Active"}, {new: true})
+        const user = await User.findByIdAndUpdate(id, {statusAccount: "Active"}, {verification: true}, {new: true})
 
         return res.status(200).json({
             message: "Se ha podido encontrar alos usuarios exitosamente",

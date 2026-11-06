@@ -69,3 +69,5 @@ export const userDisabledId = async (id = "") =>{
         throw new Error(`El usuario ${findUserDisabled.name}que intenta Deshabilitar ya se encuentra sin acceso`)
     }
 }
+
+// //////////////////////// Lapsed //////////////////////// //

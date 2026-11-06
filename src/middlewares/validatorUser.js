@@ -4,7 +4,7 @@ import { validarCampos } from "./validarCampos.js";
 import { valueJWT } from "./valueJWT.js";
 import { emailUsed, usedUsername, usedPhone } from "../helpers/db-Validator.js";
 
-export const validatorListDataUser = [
+export const validatorListUser = [
     valueJWT,
     validarCampos
 ]

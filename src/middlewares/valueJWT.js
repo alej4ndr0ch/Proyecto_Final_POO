@@ -2,34 +2,40 @@ import User from "../users/user.model.js";
 import jwt from "jsonwebtoken";
 
 export const valueJWT = async (req, resp, next) => {
-  const token = req.header("Authorization");
+  const tokenHeader = req.header("Authorization");
 
-  if (!token) {
+  if (!tokenHeader) {
     return resp.status(401).json({
       msg: "No hay token para la petición",
     });
   }
+
+  const token = tokenHeader.startsWith("Bearer ")
+    ? tokenHeader.slice(7)
+    : tokenHeader;
+
   try {
-    console.log("Clave secreta:", process.env.SECRETORPRIVATEKEY);
     const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-    const usuario = await User.findById(uid);
+
+    const usuario = await User.findByPk(uid);
     if (!usuario) {
       return resp.status(401).json({
-        msg: "usuario no existe en la base de datos",
+        msg: "Usuario no existe en la base de datos",
       });
     }
+
     if (!usuario.status) {
       return resp.status(401).json({
-        msg: "Token no valido - usuario con estado: False",
+        msg: "Token no válido - usuario con estado: False",
       });
     }
+
     req.user = usuario;
     next();
   } catch (e) {
-    console.log(process.env.SECRETORPRIVATEKEY)
-    console.log(e);
+    console.error("Error al validar JWT:", e.message);
     resp.status(401).json({
-      msg: "Token no valido",
+      msg: "Token no válido",
     });
   }
 };

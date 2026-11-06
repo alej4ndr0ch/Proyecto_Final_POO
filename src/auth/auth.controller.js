@@ -38,6 +38,11 @@ export const login = async (req, res) => {
 
     return res.status(200).json({
       userDetails: {
+        id: findUser.id,
+        name: findUser.name,
+        surname: findUser.surname,
+        carne: findUser.carne,
+        horasBecaDone: findUser.horasBecaDone ?? 0,
         username: findUser.username,
         status: findUser.statusAccount,
         role: findUser.role,

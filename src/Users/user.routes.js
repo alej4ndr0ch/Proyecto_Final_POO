@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { getUsers, putUser, updatePassword, getUsersPending, activeUsers } from "./user.controller.js";
+import { getUsers, getUserById, putUser, updatePassword, getUsersPending, activeUsers } from "./user.controller.js";
 import { passwordValidatorMiddleware } from "../middlewares/validatePassword.js";
-import { validatorListDataUser, validatorUpdateUser } from "../middlewares/validatorUser.js";
+import { validatorListUser, validatorUpdateUser } from "../middlewares/validatorUser.js";
 import { validatorActiveUser, validatorListPending } from "../middlewares/validatorAdmin.js";
 import { valueJWT } from "../middlewares/valueJWT.js";
 
@@ -10,8 +10,13 @@ const router = Router()
 
 router.get(
     "/personalData",
-    validatorListDataUser,
+    validatorListUser,
     getUsers
+)
+
+router.get(
+    "/getUsersById/:id",
+    getUserById
 )
 
 router.put(

@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 
-import { initServer, defaultAdmin } from "./config/server.js";
-
 dotenv.config();
+
+const { initServer, defaultAdmin } = await import("./config/server.js");
 
 const start = async () => {
   await initServer();
